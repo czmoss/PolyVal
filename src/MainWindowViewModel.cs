@@ -24,13 +24,13 @@ namespace PolyVal
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        private int coefficient;
+        private double coefficient;
         private int exponent;
         private int selectedIndex;
 
         private ObservableCollection<TermViewModel> terms = new ObservableCollection<TermViewModel>();
 
-        public int Coefficient
+        public double Coefficient
         {
             get { return coefficient; }
             set { coefficient = value; OnPropertyChanged(nameof(Coefficient)); }
@@ -58,7 +58,7 @@ namespace PolyVal
 
         public void ResetCoefficientAndExponent()
         {
-            SetCoefficientAndExponent(0, 0);
+            SetCoefficientAndExponent(0d, 0);
         }
 
         public void SetCoefficientAndExponent(TermViewModel term)
@@ -66,7 +66,7 @@ namespace PolyVal
             SetCoefficientAndExponent(term.Coefficient, term.Exponent);
         }
 
-        private void SetCoefficientAndExponent(int c, int e)
+        private void SetCoefficientAndExponent(double c, int e)
         {
             Coefficient = c;
             Exponent = e;

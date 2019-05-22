@@ -44,5 +44,5 @@ using System.Windows;
     //where the generic resource dictionary is located (used if a resource is not found in the page, app, or any theme-specific resource dictionaries)
     ResourceDictionaryLocation.SourceAssembly)]
 
-[assembly: AssemblyVersion("0.3.0")]
-[assembly: AssemblyInformationalVersion("0.3.0")]
+[assembly: AssemblyVersion("0.4.0")]
+[assembly: AssemblyInformationalVersion("0.4.0")]

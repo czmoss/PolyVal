@@ -23,10 +23,10 @@ namespace PolyVal
 {
     public class TermViewModel : INotifyPropertyChanged
     {
-        private int coefficient;
+        private double coefficient;
         private int exponent;
 
-        public int Coefficient
+        public double Coefficient
         {
             get { return coefficient; }
             set { coefficient = value; OnPropertyChanged(nameof(Coefficient)); }

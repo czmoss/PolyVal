@@ -18,6 +18,7 @@ with PolyVal.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 using System;
+using System.Linq;
 using System.Windows.Input;
 
 namespace PolyVal
@@ -44,11 +45,21 @@ namespace PolyVal
         {
             if (parameter is MainWindowViewModel vm)
             {
-                vm.Terms.Add(new TermViewModel
+                // Instead of having to gather like terms during evaluation,
+                // let's just put them together now.
+                var term = vm.Terms.FirstOrDefault(t => t.Exponent == vm.Exponent);
+                if (term != null)
                 {
-                    Coefficient = vm.Coefficient,
-                    Exponent = vm.Exponent,
-                });
+                    term.Coefficient += vm.Coefficient;
+                }
+                else
+                {
+                    vm.Terms.Add(new TermViewModel
+                    {
+                        Coefficient = vm.Coefficient,
+                        Exponent = vm.Exponent,
+                    });
+                }
                 vm.ResetCoefficientAndExponent();
             }
         }

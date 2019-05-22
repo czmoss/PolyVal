@@ -9,5 +9,4 @@ UI to represent polynomial
 
 Evaluation strategies
 - Left-to-right
-- Combining like terms
-- Horner's method
+- Nested

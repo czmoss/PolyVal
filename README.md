@@ -9,4 +9,5 @@ UI to represent polynomial
 
 Evaluation strategies
 - Left-to-right
+- System.Math.Pow
 - Nested

@@ -31,11 +31,13 @@ with PolyVal.  If not, see<https://www.gnu.org/licenses/>.
     <Window.Resources>
         <local:AddTermCommand x:Key="addTermCommand"/>
         <local:RemoveTermCommand x:Key="removeTermCommand"/>
+        <local:EvaluateCommand x:Key="evaluateCommand"/>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -77,5 +79,24 @@ with PolyVal.  If not, see<https://www.gnu.org/licenses/>.
                 </GridView>
             </ListView.View>
         </ListView>
+
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0">Point</Label>
+            <TextBox Grid.Column="1" VerticalAlignment="Center" Text="{Binding Point}"/>
+        </Grid>
+        <Button Grid.Row="2" Grid.Column="1" Command="{StaticResource evaluateCommand}" CommandParameter="{Binding}">Evaluate</Button>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0">Value</Label>
+            <TextBox Grid.Column="1" VerticalAlignment="Center" IsEnabled="False" Text="{Binding Value}"/>
+        </Grid>
     </Grid>
 </Window>

@@ -19,6 +19,7 @@ with PolyVal.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace PolyVal
 {
@@ -26,7 +27,12 @@ namespace PolyVal
     {
         private double coefficient;
         private int exponent;
+        private int? degree;
+
         private int selectedIndex;
+
+        private double point;
+        private double value;
 
         private ObservableCollection<TermViewModel> terms = new ObservableCollection<TermViewModel>();
 
@@ -42,10 +48,24 @@ namespace PolyVal
             set { exponent = value; OnPropertyChanged(nameof(Exponent)); }
         }
 
+        public int? Degree => degree;
+
         public int SelectedIndex
         {
             get { return selectedIndex; }
             set { selectedIndex = value; OnPropertyChanged(nameof(SelectedIndex));  }
+        }
+
+        public double Point
+        {
+            get { return point; }
+            set { point = value; OnPropertyChanged(nameof(Point)); }
+        }
+
+        public double Value
+        {
+            get { return value; }
+            set { this.value = value; OnPropertyChanged(nameof(Value)); }
         }
 
         public ObservableCollection<TermViewModel> Terms
@@ -55,6 +75,18 @@ namespace PolyVal
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void CalculateDegree()
+        {
+            if (Terms.Count == 0)
+            {
+                degree = null;
+            }
+            else
+            {
+                degree = Terms.Max(t => t.Exponent);
+            }
+        }
 
         public void ResetCoefficientAndExponent()
         {

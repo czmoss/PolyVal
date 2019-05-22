@@ -64,6 +64,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AddTermCommand.cs" />
+    <Compile Include="EvaluateCommand.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="RemoveTermCommand.cs" />
     <Compile Include="TermViewModel.cs" />

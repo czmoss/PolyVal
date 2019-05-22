@@ -60,6 +60,7 @@ namespace PolyVal
                         Exponent = vm.Exponent,
                     });
                 }
+                vm.CalculateDegree();
                 vm.ResetCoefficientAndExponent();
             }
         }

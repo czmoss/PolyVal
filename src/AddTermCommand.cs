@@ -38,7 +38,7 @@ namespace PolyVal
                 return false;
             }
 
-            return parameter is MainWindowViewModel vm && vm.Coefficient != 0 && vm.Exponent > 0;
+            return parameter is MainWindowViewModel vm && vm.Coefficient != 0 && vm.Exponent >= 0;
         }
 
         public void Execute(object parameter)
